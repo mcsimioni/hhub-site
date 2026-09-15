@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hhub technologies | Automação de Processos, IA e Software Sob Medida</title>
+    <meta name="description" content="Aumente a eficiência operacional e reduza custos com IA generativa, automação de processos e desenvolvimento de software sob medida com a hhub technologies.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hhub.dev/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hhub.dev/">
+    <meta property="og:title" content="hhub technologies | Automação, IA & Software">
+    <meta property="og:description" content="Transforme gargalos operacionais em rotinas automatizadas e aplicações escaláveis com inteligência artificial.">
+    <meta property="og:site_name" content="hhub technologies">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-base: #06080d;
+            --bg-surface: #0e131f;
+            --bg-surface-elevated: #161e2e;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-glow: rgba(99, 102, 241, 0.28);
+            --emerald: #10b981;
+            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 75%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(6, 8, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .brand small {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-left: 0.35rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn-nav {
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            color: var(--primary);
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 0.35rem 0.95rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--emerald);
+            margin-bottom: 1.75rem;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+            margin-bottom: 1.5rem;
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 25%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px var(--primary-glow);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px -6px var(--primary-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 0.9rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            background: var(--bg-surface-elevated);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .icon-blue { background: rgba(99, 102, 241, 0.12); }
+        .icon-cyan { background: rgba(6, 182, 212, 0.12); }
+        .icon-emerald { background: rgba(16, 185, 129, 0.12); }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--emerald);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .metrics-banner {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .metric-item h4 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .lead-section {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, #080b13 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .form-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .form-info p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-checks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 4rem 0 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-brand p {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            max-width: 320px;
+            color: var(--text-secondary);
+        }
+
+        .footer-col h5 {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-primary);
+        }
+
+        .legal-banner {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .fb-disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 1.25rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .lead-section { padding: 2rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+    <div class="bg-grid"></div>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="/" class="brand">
+                hhub<span>.dev</span>
+                <small>technologies</small>
+            </a>
+            <div class="nav-links">
+                <a href="#solucoes">Soluções</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#contato" class="btn-nav">Agendar Diagnóstico</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <div class="badge-verified">
+                <span class="pulse-dot"></span>
+                Automação Inteligente & Soluções Escaláveis
+            </div>
+            <h1>
+                Acelere sua operação com <span class="gradient-text">IA, Automações & Software Sob Medida</span>
+            </h1>
+            <p class="hero-desc">
+                A <strong>hhub technologies</strong> desenha e implementa pipelines de dados assíncronos, agentes inteligentes e sistemas proprietários para eliminar gargalos manuais e otimizar custos.
+            </p>
+            <div class="hero-actions">
+                <a href="#contato" class="btn-primary">
+                    Solicitar Diagnóstico Técnico
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#solucoes" class="btn-secondary">Ver Especialidades</a>
+            </div>
+        </header>
+
+        <section class="metrics-banner" id="diferenciais">
+            <div class="metric-item">
+                <h4>+80%</h4>
+                <p>Redução em tempo de execução de tarefas manuais</p>
+            </div>
+            <div class="metric-item">
+                <h4>24/7</h4>
+                <p>Disponibilidade contínua de rotinas e agentes de IA</p>
+            </div>
+            <div class="metric-item">
+                <h4>100%</h4>
+                <p>Projetos desenhados para a regra de negócio da sua empresa</p>
+            </div>
+        </section>
+
+        <section class="section-padding" id="solucoes">
+            <div class="section-header">
+                <div class="section-subtitle">O Que Construímos</div>
+                <h2 class="section-title">Engenharia especializada para destravar gargalos</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon icon-blue">⚙️</div>
+                        <h3>Automação de Processos & APIs</h3>
+                        <p>Integração de CRMs, ERPs, canais de atendimento e bancos de dados para eliminar digitação e sincronização manual.</p>
+                        <ul class="feature-list">
+                            <li>Pipelines assíncronos de alta tolerância a falhas</li>
+                            <li>Integração via webhooks e APIs REST/GraphQL</li>
+                            <li>Notificações e monitoramento em tempo real</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon icon-cyan">🧠</div>
+                        <h3>Agentes de IA & Modelos Generativos</h3>
+                        <p>Agentes autônomos treinados com dados proprietários da sua empresa para triagem, respostas operacionais e extração documental.</p>
+                        <ul class="feature-list">
+                            <li>Arquiteturas RAG (Busca semântica com seus documentos)</li>
+                            <li>Assistentes operacionais de suporte e vendas</li>
+                            <li>Automação de decisões complexas com LLMs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div>
+                        <div class="service-icon icon-emerald">💻</div>
+                        <h3>Engenharia de Software & Cloud</h3>
+                        <p>Aplicações web modernas, microsserviços e painéis internos em infraestruturas isoladas, com alta segurança e performance.</p>
+                        <ul class="feature-list">
+                            <li>Deploy com Docker, Caddy e Traefik</li>
+                            <li>Dashboards analíticos customizados</li>
+                            <li>Bancos de dados escaláveis e monitorados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-section" id="contato">
+            <div class="form-grid">
+                <div class="form-info">
+                    <h2>Descubra onde sua operação está perdendo tempo e receita</h2>
+                    <p>Fale diretamente com os fundadores e especialistas técnicos da hhub technologies. Avaliamos a viabilidade dos seus processos sem compromisso comercial inicial.</p>
+                    <ul class="info-checks">
+                        <li>Contato direto via WhatsApp ou e-mail</li>
+                        <li>Análise de viabilidade e arquitetura recomendada</li>
+                        <li>Acordo de confidencialidade e conformidade com a LGPD</li>
+                    </ul>
+                </div>
+
+                <form class="contact-form" action="https://formsubmit.co/contato@hhub.dev" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Novo Lead - hhub technologies">
+
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Seu nome ou cargo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail de trabalho</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="voce@suaempresa.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">WhatsApp / Telefone</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="need">Principal desafio atual</label>
+                        <select id="need" name="need" class="form-control" required>
+                            <option value="" disabled selected>Selecione uma área...</option>
+                            <option value="automacao">Automatizar fluxos manuais e planilhas</option>
+                            <option value="ia">Implementar IA ou agentes inteligentes</option>
+                            <option value="software">Desenvolvimento de sistema sob medida</option>
+                            <option value="outro">Outro projeto técnico</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="justify-content: center; margin-top: 0.5rem;">
+                        Agendar Diagnóstico Gratuito
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand">hhub<span>.dev</span> <small>technologies</small></div>
+                    <p>Tecnologia aplicada à eficiência operacional: IA prática, automações avançadas e sistemas modernos sob medida.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Soluções</h5>
+                    <ul>
+                        <li><a href="#solucoes">Workflows de Automação</a></li>
+                        <li><a href="#solucoes">Modelos de IA & RAG</a></li>
+                        <li><a href="#solucoes">Arquitetura de Software</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Transparência & Jurídico</h5>
+                    <ul>
+                        <li><a href="/privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="/termos.html">Termos de Uso</a></li>
+                        <li><a href="mailto:contato@hhub.dev">contato@hhub.dev</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legal-banner">
+                <div>&copy; 2026 hhub technologies (hhub.dev). Todos os direitos reservados.</div>
+                <div>Em conformidade com a LGPD (Lei Geral de Proteção de Dados).</div>
+            </div>
+
+            <p class="fb-disclaimer">
+                Este site não é afiliado ao Facebook, Instagram ou a qualquer entidade da Meta Platforms, Inc. A responsabilidade por todos os serviços e conteúdos apresentados é exclusiva da hhub technologies.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
